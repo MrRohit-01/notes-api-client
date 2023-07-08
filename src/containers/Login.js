@@ -7,6 +7,7 @@ import { useAppContext } from "../libs/contextLib";
 import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const history = useHistory();
@@ -14,7 +15,7 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [fields, handleFieldChange] = useFormFields({
     email: "",
-    password: ""
+    password: "",
   });
 
   function validateForm() {
@@ -44,7 +45,7 @@ export default function Login() {
             autoFocus
             type="email"
             value={fields.email}
-            onChange={handleFieldChange}
+            onChange={handleFieldChange} className="email-holder"
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
@@ -55,6 +56,7 @@ export default function Login() {
             onChange={handleFieldChange}
           />
         </Form.Group>
+        <Link to="/login/reset">Forgot password?</Link>
         <LoaderButton
           block
           size="lg"

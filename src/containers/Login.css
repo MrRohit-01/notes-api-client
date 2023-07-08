@@ -7,4 +7,15 @@
     max-width: 320px;
     }
 }
-    
+.Login form a {
+    margin-bottom: 15px;
+    display: block;
+    font-size: 14px;
+    }
+.email-placeholder{
+    -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none;
+  outline: none;
+}
+ 

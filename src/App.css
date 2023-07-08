@@ -1,1 +1,19 @@
-.App {}
+.App {
+  .hide{
+    display: none;
+  }
+  .container{
+    background-color: #000;
+  }
+  .logout{
+    width: 30px;
+    height: 27px;
+  }
+  .settings{
+    width: 30px;
+    height: 28px;
+  }
+ body{
+    background-color: black;
+  }
+}

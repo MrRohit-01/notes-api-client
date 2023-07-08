@@ -3,6 +3,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { useAppContext } from "../libs/contextLib";
 import { onError } from "../libs/errorLib";
 import "./Home.css";
+import Nav from "react-bootstrap/Nav";
 import { API } from "aws-amplify";
 import { BsPencilSquare } from "react-icons/bs";
 import { LinkContainer } from "react-router-bootstrap";
@@ -26,54 +27,78 @@ export default function Home() {
     }
     onLoad();
   }, [isAuthenticated]);
-  
+
   function loadNotes() {
     return API.get("notes", "/notes");
   }
-  
-  function renderNotesList(notes) {
-    return (
-      <>
-        <LinkContainer to="/notes/new">
-          <ListGroup.Item action className="py-3 text-nowrap text-truncate">
-            <BsPencilSquare size={17} />
-            <span className="ml-2 font-weight-bold">Create a new note</span>
-          </ListGroup.Item>
-        </LinkContainer>
-        {notes.map(({ noteId, content, createdAt }) => (
-          <LinkContainer key={noteId} to={`/notes/${noteId}`}>
-            <ListGroup.Item action>
+
+  function renderNotes() {
+    const rows = [];
+    let currentRow = [];
+
+    for (let i = 0; i < notes.length; i++) {
+      const { noteId, content, createdAt } = notes[i];
+
+      currentRow.push(
+        <LinkContainer key={noteId} to={`/notes/${noteId}`}>
+          <div className="NoteBox">
+            <div className="content">
               <span className="font-weight-bold">
                 {content.trim().split("\n")[0]}
               </span>
-              <br />
-              <span className="text-muted">
-                Created: {new Date(createdAt).toLocaleString()}
-              </span>
-            </ListGroup.Item>
-          </LinkContainer>
-        ))}
-      </>
-    );
+            </div>
+            <div className="created-at">
+              Created: {new Date(createdAt).toLocaleString()}
+            </div>
+          </div>
+        </LinkContainer>
+      );
+
+      if (currentRow.length === 4 || i === notes.length - 1) {
+        rows.push(<div className="NotesRow">{currentRow}</div>);
+        currentRow = [];
+      }
+    }
+
+    return <div className="NotesContainer">{rows}</div>;
   }
-  
+
   function renderLander() {
     return (
       <div className="lander">
         <h1>Scratch</h1>
         <p className="text-muted">A simple note taking app</p>
+        <LinkContainer to="/signup">
+          <Nav.Link className="button-27">Signup</Nav.Link>
+        </LinkContainer>
+        <LinkContainer to="/login">
+          <Nav.Link className="button-27">Login</Nav.Link>
+        </LinkContainer>
       </div>
     );
   }
 
-  function renderNotes() {
+  function renderNotesList(notes) {
     return (
-      <div className="notes">
-        <h2 className="pb-3 mt-4 mb-3 border-bottom">Your Notes</h2>
-        <ListGroup>{!isLoading && renderNotesList(notes)}</ListGroup>
-      </div>
+      <ListGroup>
+        {!isLoading &&
+          notes.map(({ noteId, content, createdAt }) => (
+            <LinkContainer key={noteId} to={`/notes/${noteId}`}>
+              <ListGroup.Item action>
+                <span className="font-weight-bold">
+                  {content.trim().split("\n")[0]}
+                </span>
+                <br />
+                <span className="text-muted">
+                  Created: {new Date(createdAt).toLocaleString()}
+                </span>
+              </ListGroup.Item>
+            </LinkContainer>
+          ))}
+      </ListGroup>
     );
   }
+  
 
   return (
     <div className="Home">
