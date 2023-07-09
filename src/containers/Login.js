@@ -38,6 +38,7 @@ export default function Login() {
 
   return (
     <div className="Login">
+      <div className="inside-login">
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
@@ -45,7 +46,9 @@ export default function Login() {
             autoFocus
             type="email"
             value={fields.email}
-            onChange={handleFieldChange} className="email-holder"
+            onChange={handleFieldChange} 
+            className="label-input no-outline cmp-code"
+            placeholder="Enter email"
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
@@ -54,6 +57,9 @@ export default function Login() {
             type="password"
             value={fields.password}
             onChange={handleFieldChange}
+            className="label-input no-outline cmp-code"
+            placeholder="Enter password"
+
           />
         </Form.Group>
         <Link to="/login/reset">Forgot password?</Link>
@@ -63,10 +69,11 @@ export default function Login() {
           type="submit"
           isLoading={isLoading}
           disabled={!validateForm()}
+          className="button-65 width-set"
         >
           Login
         </LoaderButton>
-      </Form>
+      </Form></div>
     </div>
   );
 }

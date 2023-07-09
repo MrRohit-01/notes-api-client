@@ -75,6 +75,7 @@ export default function ChangePassword() {
           bsSize="large"
           disabled={!validateForm()}
           isLoading={isChanging}
+          className="button-27"
         >
           Change Password
         </LoaderButton>

@@ -60,6 +60,7 @@ export default function ChangeEmail() {
             type="email"
             value={fields.email}
             onChange={handleFieldChange}
+           className="email-holder"
           />
         </FormGroup>
         <LoaderButton
@@ -67,7 +68,7 @@ export default function ChangeEmail() {
           type="submit"
           bsSize="large"
           isLoading={isSendingCode}
-          disabled={!validateEmailForm()}
+          disabled={!validateEmailForm()}className="button-27"
         >
           Update Email
         </LoaderButton>

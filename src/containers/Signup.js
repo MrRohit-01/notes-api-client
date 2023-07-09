@@ -13,7 +13,7 @@ export default function Signup() {
     email: "",
     password: "",
     confirmPassword: "",
-    confirmationCode: ""
+    confirmationCode: "",
   });
 
   const history = useHistory();
@@ -39,7 +39,7 @@ export default function Signup() {
     try {
       const newUser = await Auth.signUp({
         username: fields.email,
-        password: fields.password
+        password: fields.password,
       });
       setIsLoading(false);
       setNewUser(newUser);
@@ -48,7 +48,7 @@ export default function Signup() {
       setIsLoading(false);
     }
   }
-  
+
   async function handleConfirmationSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
@@ -62,10 +62,10 @@ export default function Signup() {
       setIsLoading(false);
     }
   }
-  
 
   function renderConfirmationForm() {
     return (
+      <div className="code-cmn">
       <Form onSubmit={handleConfirmationSubmit}>
         <Form.Group controlId="confirmationCode" size="lg">
           <Form.Label>Confirmation Code</Form.Label>
@@ -74,6 +74,7 @@ export default function Signup() {
             type="tel"
             onChange={handleFieldChange}
             value={fields.confirmationCode}
+            className="label-input no-outline cmp-code"
           />
           <Form.Text muted>Please check your email for the code.</Form.Text>
         </Form.Group>
@@ -84,15 +85,17 @@ export default function Signup() {
           variant="success"
           isLoading={isLoading}
           disabled={!validateConfirmationForm()}
+          className="button-20 color-btn"
         >
           Verify
         </LoaderButton>
-      </Form>
+      </Form></div>
     );
   }
 
   function renderForm() {
     return (
+      <div className="signup-page">
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="email" size="lg">
           <Form.Label>Email</Form.Label>
@@ -101,6 +104,8 @@ export default function Signup() {
             type="email"
             value={fields.email}
             onChange={handleFieldChange}
+            placeholder="ex:-admin@example.com"
+            className="label-input no-outline"
           />
         </Form.Group>
         <Form.Group controlId="password" size="lg">
@@ -109,6 +114,8 @@ export default function Signup() {
             type="password"
             value={fields.password}
             onChange={handleFieldChange}
+            placeholder="write password"
+            className="label-input no-outline"
           />
         </Form.Group>
         <Form.Group controlId="confirmPassword" size="lg">
@@ -117,6 +124,8 @@ export default function Signup() {
             type="password"
             onChange={handleFieldChange}
             value={fields.confirmPassword}
+            placeholder="Re-write password"
+            className="label-input no-outline"
           />
         </Form.Group>
         <LoaderButton
@@ -124,13 +133,13 @@ export default function Signup() {
           size="lg"
           type="submit"
           // variant="success"
-          style={{ backgroundColor: '#07fe2c', color: 'white' }}
+          className="button-20"
           isLoading={isLoading}
           disabled={!validateForm()}
         >
           Signup
         </LoaderButton>
-      </Form>
+      </Form></div>
     );
   }
 

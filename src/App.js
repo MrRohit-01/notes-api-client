@@ -43,7 +43,7 @@ function App() {
       <div className="App container py-3">
         <Navbar collapseOnSelect bg="" expand="md" className="mb-3">
           <LinkContainer to="/">
-            <Navbar.Brand className="font-weight-bold ">Scratch</Navbar.Brand>
+            <Navbar.Brand className="font-weight-bold logo">Scratch</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
@@ -51,7 +51,7 @@ function App() {
               {isAuthenticated ? (
                 <>
                   <LinkContainer to="/settings">
-                    <Nav.Link onClick={handleLogout}>
+                    <Nav.Link >
                       <img src={settingsIcon} alt="Settings" className="settings" />
                     </Nav.Link>
                   </LinkContainer>

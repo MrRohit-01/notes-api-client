@@ -3,3 +3,30 @@
     font-size: 1.5rem;
 }
     
+.attachment-img{
+    margin: 1rem 0 1rem 1rem;
+    width: 10vw;
+    object-fit: contain;
+  }
+  .attachment-url{
+    width: 10vw;
+  }
+.text-area{
+    border-radius: 30px;
+    border: 2px rgb(12, 243, 146) solid;
+    box-shadow: 0px 0px 8px rgb(80, 212, 170);
+    padding-top: 20px;
+}
+.save-btn{
+    display: flex;
+    justify-content: space-between;
+}
+.btn-40{
+    margin-top: 0 !important;
+}
+.together{
+    margin-top: 30px;
+}
+.red{
+    background-color: rgba(220, 50, 50,0.8) !important;
+}

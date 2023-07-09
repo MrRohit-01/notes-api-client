@@ -1,9 +1,46 @@
 @media all and (min-width: 480px) {
     .Signup {
     padding: 60px 0;
+    display: flex;
+    justify-content: center;
     }
     .Signup form {
     margin: 0 auto;
     max-width: 320px;
     }
+    .label-input::selection{
+        /* user-select: none; */
+        
+      }
+      .label-input{
+        /* user-select: none; */
+        outline: hidden;
+        border-radius: 30px;
+      }
+      .no-outline:focus,
+      .no-outline:active {
+        /* outline: none !important; */
+        box-shadow: none;
+      }
+      .signup-page{
+        width: 40%;
+        height: 60vh;
+        background-color: rgba(44, 209, 215, 0.3);
+
+        padding: 40px 0;
+        border-radius: 20px;
+      }
+      .cmp-code{
+        width: 300px;
+      }
+      .color-btn{
+        background-color: #1366d6 !important;
+      }
+      .code-cmn{
+         width: 40%;
+        height: 30vh;
+        background-color: rgba(44, 209, 215, 0.3);
+        padding: 40px 0;
+        border-radius: 20px;
+      }
 }

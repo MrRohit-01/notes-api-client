@@ -100,32 +100,31 @@ export default function Notes() {
       setIsDeleting(false);
     }
   }
-  
-  
   return (
     <div className="Notes">
       {note && (
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="content">
-            <Form.Control as="textarea" value={content} onChange={(e) => setContent(e.target.value)} />
+            <Form.Control as="textarea"  className="text-area"value={content} onChange={(e) => setContent(e.target.value)} />
           </Form.Group>
+          <div className="save-btn">
           <Form.Group controlId="file">
-            <Form.Label>Attachment</Form.Label>
+            {/* <Form.Label>Attachment</Form.Label> */}
+            
             {note.attachment && (
-              <p>
-                <a target="_blank" rel="noopener noreferrer" href={note.attachmentURL}>
-                  {formatFilename(note.attachment)}
-                </a>
-              </p>
+              <img src={note.attachmentURL} alt={content} className="attachment-url"/>
+              
             )}
             <Form.Control onChange={handleFileChange} type="file" />
           </Form.Group>
+          <div className="together">
           <LoaderButton
             block
             size="lg"
             type="submit"
             isLoading={isLoading}
             disabled={!validateForm()}
+            className="button-65 chpassword"
           >
             Save
           </LoaderButton>
@@ -135,9 +134,10 @@ export default function Notes() {
             variant="danger"
             onClick={handleDelete}
             isLoading={isDeleting}
+            className="button-65 chpassword btn-40 red"
           >
             Delete
-          </LoaderButton>
+          </LoaderButton></div></div>
         </Form>
       )}
     </div>

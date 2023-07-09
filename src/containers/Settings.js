@@ -17,16 +17,15 @@ export default function Settings() {
   return (
     <div className="Settings">
     <LinkContainer to="/settings/email">
-    <LoaderButton className="change" block bsSize="large">
+    <LoaderButton className="change button-65" block bsSize="large">
     Change Email
     </LoaderButton>
     </LinkContainer>
     <LinkContainer to="/settings/password">
-    <LoaderButton className="change" block bsSize="large">
+    <LoaderButton className="change button-65 chpassword"  bsSize="large">
     Change Password
     </LoaderButton>
     </LinkContainer>
-    <hr />
 </div>
 );
 }

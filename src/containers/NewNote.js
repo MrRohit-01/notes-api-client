@@ -52,11 +52,13 @@ export default function NewNote() {
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="content">
           <Form.Control
+          className="text-area"
             value={content}
             as="textarea"
             onChange={(e) => setContent(e.target.value)}
           />
         </Form.Group>
+        <div className="together">
         <Form.Group controlId="file">
           <Form.Label>Attachment</Form.Label>
           <Form.Control onChange={handleFileChange} type="file" />
@@ -68,9 +70,11 @@ export default function NewNote() {
           variant="primary"
           isLoading={isLoading}
           disabled={!validateForm()}
+          className="button-65 chpassword"
+
         >
           Create
-        </LoaderButton>
+        </LoaderButton></div>
       </Form>
     </div>
   );
