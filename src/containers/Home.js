@@ -99,7 +99,7 @@ export default function Home() {
   function renderNotes() {
     return (
       <div className="notes">
-        <h2 className="Your pb-3 mt-4 mb-3 border-bottom">Your Notes</h2>
+        <h2 className="Your pb-3 mt-4 mb-3 border-bottom padding">Your Notes</h2>
         <ListGroup>{!isLoading && renderNotesList(notes)}</ListGroup>
       </div>
     );
