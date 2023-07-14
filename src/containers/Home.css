@@ -144,7 +144,7 @@ top: 150px;
 .custom-note-item{
   height: auto;
   width: auto;
-  background-color: #f3feee;
+  background-color:#7adef1;
   border-radius: 20px;
   font-weight: 600;
   text-align: center;
@@ -154,6 +154,11 @@ top: 150px;
   justify-content: space-between;
   padding-bottom: 1rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.custom-note-item:hover{
+  box-shadow: rgba(0, 234, 255, 0.15) 0px 5px 20px 10px;
+  scale: 1.05;
+
 }
 .note-content {
   margin-bottom: 10px;
@@ -261,7 +266,7 @@ top: 150px;
   padding: .5rem 1rem;
   text-align: center;
   text-transform: none;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
