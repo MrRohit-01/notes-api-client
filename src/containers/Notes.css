@@ -6,9 +6,10 @@
 .attachment-img{
     margin: 1rem 0 1rem 1rem;
     width: 12vw;
+    border-radius: 15px;
     object-fit: contain;
   }
-  .attachment-img {
+  .attachment-url {
     margin: 1rem 0 1rem 1rem;
     width: 13.5vw;
     object-fit: contain;
